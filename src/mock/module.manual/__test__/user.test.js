@@ -6,7 +6,13 @@ jest.mock("../verify");
 describe("validate", () => {
   test("should validate username and password", () => {
     // Arrange
+    const username = "username";
+    const password = "password";
     // Act
+    const result = validate(username, password);
     // Assert
+    expect(result).toBe(true);
+    expect(verifyUsername()).toHaveBeenCalledTimes(1);
+    expect(verifyPassword()).toHaveBeenCalledTimes(1);
   });
 });
